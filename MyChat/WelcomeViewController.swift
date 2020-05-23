@@ -18,21 +18,18 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //view.backgroundColor = .blue
     }
 
     //MARK: IBActions
     @IBAction func loginButtonTapped(_ sender: Any) {
-        print("login")
+        view.endEditing(true)
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
-        print("register")
+        view.endEditing(true)
     }
     
     @IBAction func backgroundTapped(_ sender: Any) {
-        print("gesture")
         view.endEditing(true)
     }
 }
