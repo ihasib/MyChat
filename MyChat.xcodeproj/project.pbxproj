@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		634B62922478F59D0063132C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634B62912478F59D0063132C /* AppDelegate.swift */; };
 		634B62942478F59D0063132C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634B62932478F59D0063132C /* SceneDelegate.swift */; };
-		634B62962478F59D0063132C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634B62952478F59D0063132C /* ViewController.swift */; };
+		634B62962478F59D0063132C /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634B62952478F59D0063132C /* WelcomeViewController.swift */; };
 		634B629B2478F5A10063132C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 634B629A2478F5A10063132C /* Assets.xcassets */; };
 		634B629E2478F5A10063132C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 634B629C2478F5A10063132C /* LaunchScreen.storyboard */; };
 		634B62A92478F5A20063132C /* MyChatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634B62A82478F5A20063132C /* MyChatTests.swift */; };
+		634B62BA247907CE0063132C /* WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 634B62B9247907CE0063132C /* WelcomeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,13 +30,14 @@
 		634B628E2478F59D0063132C /* MyChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		634B62912478F59D0063132C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		634B62932478F59D0063132C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		634B62952478F59D0063132C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		634B62952478F59D0063132C /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		634B629A2478F5A10063132C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		634B629D2478F5A10063132C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		634B629F2478F5A10063132C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		634B62A42478F5A20063132C /* MyChatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyChatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634B62A82478F5A20063132C /* MyChatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChatTests.swift; sourceTree = "<group>"; };
 		634B62AA2478F5A20063132C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		634B62B9247907CE0063132C /* WelcomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +81,8 @@
 			children = (
 				634B62912478F59D0063132C /* AppDelegate.swift */,
 				634B62932478F59D0063132C /* SceneDelegate.swift */,
-				634B62952478F59D0063132C /* ViewController.swift */,
+				634B62952478F59D0063132C /* WelcomeViewController.swift */,
+				634B62B9247907CE0063132C /* WelcomeView.xib */,
 				634B629A2478F5A10063132C /* Assets.xcassets */,
 				634B629C2478F5A10063132C /* LaunchScreen.storyboard */,
 				634B629F2478F5A10063132C /* Info.plist */,
@@ -178,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				634B629E2478F5A10063132C /* LaunchScreen.storyboard in Resources */,
+				634B62BA247907CE0063132C /* WelcomeView.xib in Resources */,
 				634B629B2478F5A10063132C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				634B62962478F59D0063132C /* ViewController.swift in Sources */,
+				634B62962478F59D0063132C /* WelcomeViewController.swift in Sources */,
 				634B62922478F59D0063132C /* AppDelegate.swift in Sources */,
 				634B62942478F59D0063132C /* SceneDelegate.swift in Sources */,
 			);

@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let newScene = (scene as? UIWindowScene) else { return }
         window = UIWindow()
         window?.windowScene = newScene
-        window?.rootViewController = ViewController()
+        window?.rootViewController = WelcomeViewController(nibName: "WelcomeView", bundle: nil)
         window?.makeKeyAndVisible()
     }
 
