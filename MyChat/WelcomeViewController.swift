@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import ProgressHUD
 
 class WelcomeViewController: UIViewController {
     
@@ -22,15 +24,49 @@ class WelcomeViewController: UIViewController {
 
     //MARK: IBActions
     @IBAction func loginButtonTapped(_ sender: Any) {
+        if (emailTextField.text == "" ||
+            passwordTextField.text == "") {
+            ProgressHUD.showError("Email and Password are required")
+            return
+        }
+        loginUser()
         view.endEditing(true)
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
+        if (emailTextField.text == "" ||
+            passwordTextField.text == "" ||
+            confirmPasswordTextField.text == "") {
+            ProgressHUD.showError("All fileds are required")
+        }
+        registerUser()
         view.endEditing(true)
     }
     
     @IBAction func backgroundTapped(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    // MARK: Helper functions
+    func loginUser() {
+        ProgressHUD.show("Log in...")
+        FUser.loginUserWith(email: emailTextField.text!, passWord: passwordTextField.text!) { (error: Error?) in
+            if let error = error {
+                ProgressHUD.show(error.localizedDescription)
+            } 
+            ProgressHUD.dismiss()
+            self.clearAllFields()
+        }
+    }
+    
+    private func clearAllFields() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        confirmPasswordTextField.text = ""
+    }
+    
+    func registerUser() {
+        
     }
 }
 
