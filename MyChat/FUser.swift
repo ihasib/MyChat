@@ -33,4 +33,14 @@ class FUser {
             }
         }
     }
+    
+    class func registerUserWith(email: String, password: String, completion: ( (_ error: Error?) -> Void)?) {
+        Auth.auth().createUser(withEmail: email, password: password) { (firUser, error) in
+            guard let user = firUser else {
+                print(error?.localizedDescription)
+                return
+            }
+            print("has-1 \(user.user.email)")
+        }
+        }
 }
