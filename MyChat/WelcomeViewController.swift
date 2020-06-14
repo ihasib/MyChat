@@ -68,10 +68,14 @@ class WelcomeViewController: UIViewController {
     func registerUser() {
         if (passwordTextField.text == confirmPasswordTextField.text) {
             ProgressHUD.dismiss()
-            view.endEditing(true)
-            clearAllFields()
             FUser.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!, completion: nil)
         }
+        let vc = RegistrationViewController(nibName: "RegistrationView", bundle: nil)
+        vc.email = emailTextField.text!
+        vc.password = passwordTextField.text!
+        view.endEditing(true)
+        clearAllFields()
+        present(vc, animated: true, completion: nil)        
     }
 }
 
