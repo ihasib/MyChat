@@ -6,8 +6,8 @@
 //  Copyright © 2020 S. M. Hasibur Rahman. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import ProgressHUD
 
 class RegistrationViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
@@ -25,13 +25,63 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("has1")
-        print(email,password)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         stackView1Height.constant = UIScreen.main.bounds.height * 0.1
         imageViewBackgroundHeight.constant = UIScreen.main.bounds.height * 0.3
         stackView2Height.constant = UIScreen.main.bounds.height * 0.45
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        clearAllFields()
+        dismissKeyboard()
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        dismissKeyboard()
+        if(nameTextField.text != "" &&
+            surnameTextField.text != "" &&
+            countryTextField.text != "" &&
+            cityTextField.text != "" &&
+            phoneTextField.text != "") {
+            ProgressHUD.show("Registering...")
+            FUser.registerUserWith(email: email, password: password,
+                                   firstName: nameTextField.text!,
+                                   lastName: surnameTextField.text!,
+                                   phone: phoneTextField.text!,
+                                   country:countryTextField.text!,
+                                   city:countryTextField.text!) { (error) in
+                ProgressHUD.dismiss()
+                if let error = error {
+                    ProgressHUD.showError(error.localizedDescription)
+                    return
+                }
+                ProgressHUD.showSuccess("User Registration Successful")
+                self.clearAllFields()
+                self.dismiss(animated: true, completion: nil)
+                //self.registerUser()
+            }
+        } else {
+            ProgressHUD.showError("All fields are required")
+        }
+    }
+    
+    private func registerUser() {
+        
+    }
+    
+    // MARK: helper functions
+    private func clearAllFields() {
+        nameTextField.text = ""
+        surnameTextField.text = ""
+        countryTextField.text = ""
+        cityTextField.text = ""
+        phoneTextField.text = ""
+    }
+    
+    private func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

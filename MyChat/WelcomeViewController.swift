@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import ProgressHUD
 
 class WelcomeViewController: UIViewController {
@@ -40,40 +39,44 @@ class WelcomeViewController: UIViewController {
             ProgressHUD.showError("All fileds are required")
         }
         registerUser()
-        view.endEditing(true)
+        dismissKeyboard()
     }
     
     @IBAction func backgroundTapped(_ sender: Any) {
-        view.endEditing(true)
+        dismissKeyboard()
     }
     
-    // MARK: Helper functions
-    func loginUser() {
-        ProgressHUD.show("Log in...")
-        FUser.loginUserWith(email: emailTextField.text!, passWord: passwordTextField.text!) { (error: Error?) in
-            if let error = error {
-                ProgressHUD.show(error.localizedDescription)
-            } 
-            ProgressHUD.dismiss()
-            self.clearAllFields()
-        }
-    }
-    
+    // MARK:- Helper functions
     private func clearAllFields() {
         emailTextField.text = ""
         passwordTextField.text = ""
         confirmPasswordTextField.text = ""
     }
     
-    func registerUser() {
-        if (passwordTextField.text == confirmPasswordTextField.text) {
+    private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    func loginUser() {
+        ProgressHUD.show("Log in...")
+        FUser.loginUserWith(email: emailTextField.text!, passWord: passwordTextField.text!) { (error: Error?) in
+            if let error = error {
+                ProgressHUD.show(error.localizedDescription)
+            }
             ProgressHUD.dismiss()
-            FUser.registerUserWith(email: emailTextField.text!, password: passwordTextField.text!, completion: nil)
+            self.clearAllFields()
+        }
+    }
+    
+    func registerUser() {
+        if (passwordTextField.text != confirmPasswordTextField.text) {
+            ProgressHUD.showError("password mismatched")
+            return
         }
         let vc = RegistrationViewController(nibName: "RegistrationView", bundle: nil)
         vc.email = emailTextField.text!
         vc.password = passwordTextField.text!
-        view.endEditing(true)
+        dismissKeyboard()
         clearAllFields()
         present(vc, animated: true, completion: nil)        
     }
