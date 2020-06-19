@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegistrationViewController" customModule="MyChat" customModuleProvider="target">
             <connections>
+                <outlet property="avatarImageView" destination="axl-30-XvQ" id="bIk-eC-kpZ"/>
                 <outlet property="cityTextField" destination="bkf-z8-M0g" id="b12-4i-umd"/>
                 <outlet property="countryTextField" destination="jwh-t4-8u4" id="nZX-LC-iSK"/>
                 <outlet property="imageViewBackgroundHeight" destination="5nO-et-RPx" id="aZ0-HH-tmK"/>

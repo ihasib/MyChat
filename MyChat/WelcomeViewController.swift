@@ -19,6 +19,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDelegates()
     }
 
     //MARK: IBActions
@@ -57,6 +58,12 @@ class WelcomeViewController: UIViewController {
         view.endEditing(true)
     }
     
+    func setDelegates() {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        confirmPasswordTextField.delegate = self
+    }
+    
     func loginUser() {
         ProgressHUD.show("Log in...")
         FUser.loginUserWith(email: emailTextField.text!, passWord: passwordTextField.text!) { (error: Error?) in
@@ -82,3 +89,9 @@ class WelcomeViewController: UIViewController {
     }
 }
 
+extension WelcomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
