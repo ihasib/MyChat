@@ -65,7 +65,7 @@ class RegistrationViewController: UIViewController {
                                     return
                                 }
                                 ProgressHUD.showSuccess("Registration Successful")
-                                self.dismiss(animated: true, completion: nil)
+//                                self.dismiss(animated: true, completion: nil)
                                 self.registerUser()
                                 self.clearAllFields()
         }
@@ -103,7 +103,15 @@ class RegistrationViewController: UIViewController {
                 return
             }
             //go to app
+            
         }
+        gotoApp()
+    }
+    
+    func gotoApp() {
+        let vc = InitialPageViewController.init(nibName: "initialPage", bundle: nil)
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
     
     // MARK: helper functions

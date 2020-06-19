@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow()
         window?.windowScene = newScene
         window?.rootViewController = WelcomeViewController(nibName: "WelcomeView", bundle: nil)
+//        window?.rootViewController = InitialPageViewController(nibName: "InitialPage", bundle: nil)
         window?.makeKeyAndVisible()
     }
 
